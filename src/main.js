@@ -1,8 +1,8 @@
 const date = document.getElementById('date-input');
-var dateArraySpec;
+const message=document.querySelector('.message');
+const submitBtn= document.getElementById('btn-submit');
 
-
-date.addEventListener('click',()=>{
+submitBtn.addEventListener('click',()=>{
     let dateNum ="" ;
 
 dateArray = date.value.split("-");
@@ -13,10 +13,10 @@ dateArray.forEach((e)=>{
 })
 
 //yyyy-mm-dd
-let yearMonthDay = [...dateArray].join("");
+const yearMonthDay = [...dateArray].join("");
 
 // dd-mm-yyyy
-let dayMonthYear =  [...dateArray].reverse().join("");
+const dayMonthYear =  [...dateArray].reverse().join("");
 
 //mm-dd-yyyy
 const monthDayYearArr=[...dateArray].reverse();
@@ -51,16 +51,31 @@ console.log(`year month etc ${yearMonthDay} ,
  and one digit day ${oneDigitDayMonthYear}  `)
 
 
-
-
+ message.innerText="loading..."
+ if(date.value!==""){
+     console.log("bruh");
     if(getDataBoolean(yearMonthDay)||
        getDataBoolean(dayMonthYear)||
        getDataBoolean(monthDayYear)||
        getDataBoolean(monthDayYearTwo)||
-       getDataBoolean(oneDigitDayMonthYear)){
-        console.log("noice");
+       getDataBoolean(oneDigitDayMonthYear)
+       ){
+       
+        setTimeout(()=>{
+         message.innerText="Palindrome Birthday Bruh"
+        },3000);
+    }else{
+        setTimeout(()=>{
+            message.innerText="Not Palindrome Birthday bruh"
+           },3000);
+        
+
     }
+} else{
+    message.innerText="Enter  a date bruh"
+}
 })
+
 
 
 // you figured out half part of it  on how it is adding the new element
