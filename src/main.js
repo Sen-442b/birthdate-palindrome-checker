@@ -1,3 +1,4 @@
+import { Dayjs } from "dayjs";
 const date = document.getElementById('date-input');
 const message=document.querySelector('.message');
 const submitBtn= document.getElementById('btn-submit');
@@ -71,6 +72,8 @@ console.log(`year month etc ${yearMonthDay} ,
         
 
     }
+   const a =  new Date(`"${monthDayYearArr}"`)
+   console.log(a.toString());
 } else{
     message.innerText="Enter  a date bruh"
 }
@@ -106,8 +109,7 @@ function getDataBoolean(date){
     return date ===getReverseString(date);
 
 }
-
-
+console.log(Dayjs());
 
 
 

@@ -1,0 +1,22 @@
+{
+  "name": "trial",
+  "version": "1.0.0",
+  "description": "A Web App which checks whether your birthdate is a palindrome or not.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sen-442b/birthdate-palindrome-checker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sen-442b/birthdate-palindrome-checker/issues"
+  },
+  "homepage": "https://github.com/Sen-442b/birthdate-palindrome-checker#readme",
+  "dependencies": {
+    "dayjs": "^1.10.6"
+  }
+}
