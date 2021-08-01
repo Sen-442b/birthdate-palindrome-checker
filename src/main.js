@@ -1,4 +1,4 @@
-import { Dayjs } from "dayjs";
+
 const date = document.getElementById('date-input');
 const message=document.querySelector('.message');
 const submitBtn= document.getElementById('btn-submit');
@@ -77,6 +77,14 @@ console.log(`year month etc ${yearMonthDay} ,
 } else{
     message.innerText="Enter  a date bruh"
 }
+getPalindromeDate();
+function getPalindromeDate(){
+    const myDate =  new Date(`"${monthDayYearArr}"`);
+     const whatDate = myDate.toISOString();
+     console.log(whatDate.slice(0,10));
+  
+ 
+}
 })
 
 
@@ -109,7 +117,7 @@ function getDataBoolean(date){
     return date ===getReverseString(date);
 
 }
-console.log(Dayjs());
+
 
 
 
