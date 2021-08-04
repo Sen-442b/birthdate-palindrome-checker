@@ -1,7 +1,10 @@
 
 const date = document.getElementById('date-input');
 const message=document.querySelector('.message');
+const secondMessage = document.querySelector('.message-two');
 const submitBtn= document.getElementById('btn-submit');
+const anime = document.getElementById('anime');
+console.log(anime);
 
 submitBtn.addEventListener('click',()=>{
     let dateNum ="" ;
@@ -29,6 +32,9 @@ const monthDayYearTwoArr  = monthDayYear.split(""); //second format of the date
 monthDayYearTwoArr.splice(4,2);// removing the initials
 const monthDayYearTwo = monthDayYearTwoArr.join("")
 
+const yearMonthDayTwo = [...[...dateArray].join("")].slice(2,8).join(""); //separate array elements  to string , string to array , slicing array , sliced array to string
+
+console.log(yearMonthDayTwo);
 /*
 monthDayYearArr.splice(4,2); //removing initials of an year 
 const monthDayYear=monthDayYearArr.join(""); // converting the array to a number
@@ -51,15 +57,16 @@ console.log(`year month etc ${yearMonthDay} ,
  month day year without ini ${monthDayYearTwo}
  and one digit day ${oneDigitDayMonthYear}  `)
 
-
- message.innerText="loading..."
+ message.innerHTML= "<img src = './media/loading-two.gif' alt='loading'/>"
+ console.log(message)
  if(date.value!==""){
      console.log("bruh");
     if(getDataBoolean(yearMonthDay)||
        getDataBoolean(dayMonthYear)||
        getDataBoolean(monthDayYear)||
        getDataBoolean(monthDayYearTwo)||
-       getDataBoolean(oneDigitDayMonthYear)
+       getDataBoolean(oneDigitDayMonthYear) ||
+       getDataBoolean(yearMonthDayTwo)
        ){
        
         setTimeout(()=>{
@@ -68,7 +75,9 @@ console.log(`year month etc ${yearMonthDay} ,
     }else{
         setTimeout(()=>{
             message.innerText="Not Palindrome Birthday bruh"
+            getPalindromeDate()
            },3000);
+       
         
 
     }
@@ -77,14 +86,42 @@ console.log(`year month etc ${yearMonthDay} ,
 } else{
     message.innerText="Enter  a date bruh"
 }
-getPalindromeDate();
+
+
+
+anime.addEventListener("click",()=>{
+    anime.innerHTML ="Sddsd";
+    anime.style.color="green";
+    console.log("Sdsd")
+})
+
 function getPalindromeDate(){
     const myDate =  new Date(`"${monthDayYearArr}"`);
-     const whatDate = myDate.toISOString();
-     console.log(whatDate.slice(0,10));
-  
+    myDate.setDate(1)
+    myDate.setMonth(0)
+    
+     let i =1
+  while(1){
+     
+      console.log(myDate);
+      myDate.setDate(myDate.getDate()+i);
+      const myDateRaw = myDate.toISOString();
+      const myDateString=myDateRaw.slice(0,10).split("-").join("");
+      const myDateStringOne= [...myDateString].slice(2,8).join("");
+    //   console.log(myDateStringOne)
+      if (getReverseString(myDateStringOne) ===myDateStringOne){
+          secondMessage.innerText=`${myDateRaw.slice(0,10)} is the closest palindrome date in YY/MM/DD format`;
+
+          break;
+      };
+    //   console.log(myDate , i);
+
+
+  }
+//  const compareDate = new Date(`"${monthDayYearArr}"`)
  
 }
+
 })
 
 
@@ -117,7 +154,6 @@ function getDataBoolean(date){
     return date ===getReverseString(date);
 
 }
-
 
 
 

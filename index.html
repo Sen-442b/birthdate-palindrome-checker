@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/style.css">
     <title>birth-date palindrome checker</title>
 </head>
 <body>
-    <form onsubmit="return false">
+    <main class="main-container">   
+        <h1> Is your Birthdate a <span id="anime">Palindrome?</span> </h1>
+        <p><i>A palindrome is a word, number, phrase, or other sequence of characters which reads the same backward as forward</i></p>
+         <form onsubmit="return false">
+            <div class="about">
+                <h2>How it Works</h2>
+                <p>This web app checks your birthdate in 6 formats yyyy-mm-dd, dd-mm-yyyy, mm-dd-yy, mm-dd-yyyy , d-mm-yyyy and yy-mm-dd </p>
+                   <p> e.g. if your birthdate is 05 feb 2000, then app will check for 20000205, 05022000, 020500, 02052000, 5022000 and 000205</p>
+
+            </div>
     <input type="date" id="date-input" />
+    <br>
     <button id="btn-submit" type="submit">Check</button>
     </form>
     <div class="message"></div>
+    <div class="message-two"></div>
+</main>
+
 
 
 
