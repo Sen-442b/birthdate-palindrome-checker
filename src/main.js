@@ -116,7 +116,7 @@ function getPalindromeDate(){
 
       if (getReverseString(myDateStringOne) ===myDateStringOne){
           secondMessage.innerHTML=`<p>${myDateRaw.slice(0,10)} is the closest palindrome date in YY/MM/DD format</p>
-          <p>${getDateDifference(monthDayYearArr,myDateRaw)} </p>`;
+          <p>You missed it by ${getDateDifference(monthDayYearArr,myDateRaw)} days, better luck next time .</p>`;
 
           break;
       };
