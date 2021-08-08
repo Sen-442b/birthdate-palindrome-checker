@@ -57,10 +57,11 @@ console.log(`year month etc ${yearMonthDay} ,
  month day year without ini ${monthDayYearTwo}
  and one digit day ${oneDigitDayMonthYear}  `)
 
- message.innerHTML= "<img src = './media/loading-two.gif' alt='loading'/>"
+ message.innerHTML= "<img src = './media/loading-two.gif' alt='loading'/>";
+ secondMessage.innerHTML = "";
  console.log(message)
  if(date.value!==""){
-     console.log("bruh");
+  
     if(getDataBoolean(yearMonthDay)||
        getDataBoolean(dayMonthYear)||
        getDataBoolean(monthDayYear)||
@@ -70,11 +71,11 @@ console.log(`year month etc ${yearMonthDay} ,
        ){
        
         setTimeout(()=>{
-         message.innerText="Palindrome Birthday Bruh"
+         message.innerText="Your  Birthdate is a Palindrome "
         },3000);
     }else{
         setTimeout(()=>{
-            message.innerText="Not Palindrome Birthday bruh"
+            message.innerText="Your Birthdate is not a Palindrome"
             getPalindromeDate()
            },3000);
        
@@ -84,7 +85,7 @@ console.log(`year month etc ${yearMonthDay} ,
    const a =  new Date(`"${monthDayYearArr}"`)
    console.log(a.toString());
 } else{
-    message.innerText="Enter  a date bruh"
+    message.innerText="Enter a date please"
 }
 
 
@@ -99,18 +100,23 @@ function getPalindromeDate(){
     const myDate =  new Date(`"${monthDayYearArr}"`);
     myDate.setDate(1)
     myDate.setMonth(0)
+     myDate.setUTCHours(0); 
     
+ 
      let i =1
   while(1){
      
       console.log(myDate);
       myDate.setDate(myDate.getDate()+i);
       const myDateRaw = myDate.toISOString();
+      console.log(myDateRaw);
       const myDateString=myDateRaw.slice(0,10).split("-").join("");
       const myDateStringOne= [...myDateString].slice(2,8).join("");
     //   console.log(myDateStringOne)
+
       if (getReverseString(myDateStringOne) ===myDateStringOne){
-          secondMessage.innerText=`${myDateRaw.slice(0,10)} is the closest palindrome date in YY/MM/DD format`;
+          secondMessage.innerHTML=`<p>${myDateRaw.slice(0,10)} is the closest palindrome date in YY/MM/DD format</p>
+          <p>${getDateDifference(monthDayYearArr,myDateRaw)} </p>`;
 
           break;
       };
@@ -155,7 +161,14 @@ function getDataBoolean(date){
 
 }
 
+function getDateDifference(dateOne,dateTwo){
+    const dateFormatOne  = new Date(dateOne);
+    const dateFormatTwo  = new Date(dateTwo);
+    const millisecondsDiff=Math.abs(dateFormatOne - dateFormatTwo); //abs === absolute of mathematics
+    const  daysDiff = Math.ceil(millisecondsDiff/(1000*60*60*24)); //  miliseconds to seconds to min to hour to day
+    return daysDiff
 
+}
 
 /*
  *Note to remember for me 

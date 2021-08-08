@@ -20,7 +20,8 @@ body{
     justify-content:center;
     font-family:Montserrat;
     transition: all 4s ease-out;
-    background-color: white;
+    background-color:rgb(203 195 195 / 20%);;
+   
 }
 
 .main-container{
@@ -76,4 +77,5 @@ background:linear-gradient(rgb(205, 226, 127),var(--primary-color));
 
 img{
     max-width: 250px;
+    height: 100%;
 }
