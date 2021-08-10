@@ -71,7 +71,7 @@ console.log(`year month etc ${yearMonthDay} ,
        ){
        
         setTimeout(()=>{
-         message.innerText="Your  Birthdate is a Palindrome "
+         message.innerText="Your  Birthdate is a Palindrome (Who Cares Though) "
         },3000);
     }else{
         setTimeout(()=>{
@@ -116,7 +116,7 @@ function getPalindromeDate(){
 
       if (getReverseString(myDateStringOne) ===myDateStringOne){
           secondMessage.innerHTML=`<p>${myDateRaw.slice(0,10)} is the closest palindrome date in YY/MM/DD format</p>
-          <p>You missed it by ${getDateDifference(monthDayYearArr,myDateRaw)} days, better luck next time .</p>`;
+          <p>You missed it by ${getDateDifference(monthDayYearArr,myDateRaw) -1 } days, better luck next time .</p>`; // -1 because of the complications created by time zone
 
           break;
       };
