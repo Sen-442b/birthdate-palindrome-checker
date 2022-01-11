@@ -96,7 +96,7 @@ anime.addEventListener("click",()=>{
     console.log("Sdsd")
 })
 
-function getPalindromeDate(){
+const getPalindromeDate=()=>{
     const myDate =  new Date(`"${monthDayYearArr}"`);
     myDate.setDate(1)
     myDate.setMonth(0)
@@ -133,7 +133,7 @@ function getPalindromeDate(){
 
 
 // you figured out half part of it  on how it is adding the new element
-function arrayMove(arr, old_index, new_index) {
+const arrayMove=(arr, old_index, new_index) => arr.splice(new_index, 0, arr.splice(old_index, 1)[0])
    /** if (new_index >= arr.length) {
         var k = new_index - arr.length + 1;
         while (k--) {
@@ -141,27 +141,22 @@ function arrayMove(arr, old_index, new_index) {
         }
     }
      */
-    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
-    return arr; // for testing
-};
+   
+     // for testing
 
 
 
-function getReverseString(string){
-    if(string===""){
-        return"";
-    }else{
-        return getReverseString(string.substr(1))+ string.charAt(0);
 
-    }
+const getReverseString = string =>string===""?"":getReverseString(string.substr(1))+ string.charAt(0)
+    
+        
 
-} //note- find out  how is it working with whitespace as well 
-function getDataBoolean(date){
-    return date ===getReverseString(date);
+    
 
-}
+//note- find out  how is it working with whitespace as well 
+const getDataBoolean =date=>date ===getReverseString(date)
 
-function getDateDifference(dateOne,dateTwo){
+const getDateDifference=(dateOne,dateTwo)=>{
     const dateFormatOne  = new Date(dateOne);
     const dateFormatTwo  = new Date(dateTwo);
     const millisecondsDiff=Math.abs(dateFormatOne - dateFormatTwo); //abs === absolute of mathematics

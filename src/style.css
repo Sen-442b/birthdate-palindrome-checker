@@ -72,6 +72,12 @@ background:linear-gradient(rgb(205, 226, 127),var(--primary-color));
     border: 2px solid white;
     border-width:medium;
     border-radius: 4px;
+    opacity: 1;
+    cursor:pointer;
+}
+#btn-submit:hover{
+    
+    opacity:0.8;
 }
 
 
