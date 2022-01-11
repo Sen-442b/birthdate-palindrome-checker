@@ -1,1 +1,4 @@
 1) calculation error in date differences  
+2) nearest date isn't checked in all the date formats 
+3) No comparison done  regarding which date is actually closer to the palindrome date
+
